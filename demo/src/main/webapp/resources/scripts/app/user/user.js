@@ -19,14 +19,12 @@ define(["jquery", "util", "statusCode"], function($, util, sCode) {
 	
 	// 调用注册
 	function trueRegister(model) {
-		
 		$.ajax({
 			type : "post",
 			url : "",
 			data : JSON.stringify(model),
 			dataType : "json",
 			success : function(result) {
-				
 				util.bsAlert("注册成功", sCode.ALERT_SUCCESS);
 			}
 		});
