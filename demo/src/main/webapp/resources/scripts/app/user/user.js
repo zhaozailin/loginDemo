@@ -21,11 +21,20 @@ define(["jquery", "util", "statusCode"], function($, util, sCode) {
 	function trueRegister(model) {
 		$.ajax({
 			type : "post",
-			url : "",
+			url : "register",
 			data : JSON.stringify(model),
 			dataType : "json",
+			contentType : "text/plain",
 			success : function(result) {
-				util.bsAlert("注册成功", sCode.ALERT_SUCCESS);
+				if (result.status == sCode.AJAX_SUCCESS) {
+					util.bsAlert("注册成功", sCode.ALERT_SUCCESS);
+				}
+				else if (result.status == sCode.AJAX_EXIST) {
+					util.bsAlert("用户名已存在", sCode.ALERT_WARN);
+				}
+				else {
+					util.bsAlert("注册失败", sCode.ALERT_FAIL);
+				}
 			}
 		});
 	}

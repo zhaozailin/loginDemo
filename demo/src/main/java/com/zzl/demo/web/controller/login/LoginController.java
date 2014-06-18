@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zzl.demo.common.consts.StatusCode;
 import com.zzl.demo.common.utils.SessionUtil;
@@ -54,7 +56,7 @@ public class LoginController {
     
     /**
      * 用户登录
-     * @param body 请求消息体
+     * @param UserVo 用户业务对象
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -82,5 +84,18 @@ public class LoginController {
         
         // 跳转到主页
         return "main/main";
+    }
+    
+    /**
+     * 用户注册
+     * @param body 请求消息体
+     * @return
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @ResponseBody
+    public String register(Model model, @RequestBody String body) {
+        
+        // 执行注册
+        return userService.register(body);
     }
 }

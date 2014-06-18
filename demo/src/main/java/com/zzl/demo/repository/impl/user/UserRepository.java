@@ -63,5 +63,14 @@ public class UserRepository implements IUserRepository {
         
         return user;
     }
+
+    /** 
+     * 新增用户
+     * @see com.zzl.demo.repository.interfaces.user.IUserRepository#insert(com.zzl.demo.domain.user.User)
+     */
+    @Override
+    public void insert(User user) {
+        // 略
+    }
     
 }

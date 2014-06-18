@@ -7,6 +7,7 @@ define({
 	ALERT_WARN : 3,
 	
 	AJAX_SUCCESS : 1,
-	AJAX_FAIL : -1,
-	AJAX_TIMEOUT : -2
+	AJAX_FAIL : 0,
+	AJAX_TIMEOUT : -2,
+	AJAX_EXIST : 1007
 });

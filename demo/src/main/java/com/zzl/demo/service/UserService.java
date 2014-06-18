@@ -91,4 +91,42 @@ public class UserService implements IUserService {
         return result.toString();
     }
 
+    /**
+     * 用户注册
+     * @see com.zzl.demo.service.interfaces.user.IUserService#register(java.lang.String)
+     */
+    @Override
+    public String register(String params) {
+        
+        // 检查参数
+        if (!JsonUtil.valid(params)) {
+            return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
+        }
+
+        Map<String, String> paramsMap = new HashMap<String, String>();
+        paramsMap.put("username", "String");
+        paramsMap.put("password", "String");
+        JSONObject paramsObj = JSONObject.fromObject(params);
+        if (!JsonUtil.checkParams(paramsObj, paramsMap)) {
+            return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_PARAMS);
+        }
+        
+        // 解析参数
+        String username = paramsObj.getString("username");
+        String password = paramsObj.getString("password");
+        
+        // 检查用户名是否重复
+        
+        // 组装用户对象
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        
+        // 执行注册
+        userRepository.insert(user);
+        
+        // 返回结果
+        return JsonUtil.resultToJson(StatusCode.GLOBAL_SUCCESS);
+    }
+
 }

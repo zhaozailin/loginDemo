@@ -27,7 +27,7 @@ public interface IUserService {
      * }
      * @return
      * {
-     *  status:x --- 1:成功，0:失败，-4:参数格式非法
+     *  status:x --- 1:成功，0:失败，1001:不是有效的json格式，1002:不是有效的参数
      *  user:
      *  {
      *   id:x --- 用户id
@@ -37,4 +37,18 @@ public interface IUserService {
      * }
      */
     public String checkLogin(String params);
+    
+    /**
+     * 注册
+     * @param params
+     * {
+     *  username:x --- 用户名
+     *  password:x --- 密码
+     * }
+     * @return
+     * {
+     *  status:x --- 1:成功，0:失败，1007:用户名已存在，1001:不是有效的json格式，1002:不是有效的参数
+     * }
+     */
+    public String register(String params);
 }

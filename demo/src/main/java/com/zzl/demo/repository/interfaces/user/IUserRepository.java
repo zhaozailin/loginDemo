@@ -37,4 +37,10 @@ public interface IUserRepository {
      * @return 用户对象
      */
     public User selectById(Long id);
+    
+    /**
+     * 新增用户
+     * @param user 用户对象
+     */
+    public void insert(User user);
 }
