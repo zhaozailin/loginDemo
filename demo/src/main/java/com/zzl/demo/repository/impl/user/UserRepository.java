@@ -72,5 +72,16 @@ public class UserRepository implements IUserRepository {
     public void insert(User user) {
         // 略
     }
+
+    /**
+     * 检查用户是否重名 
+     * @see com.zzl.demo.repository.interfaces.user.IUserRepository#checkRepeat(java.lang.String, java.lang.Long)
+     */
+    @Override
+    public boolean checkRepeat(String username, Long id) {
+        
+        // 略
+        return false;
+    }
     
 }

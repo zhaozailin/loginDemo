@@ -1,4 +1,4 @@
-package com.zzl.demo.service;
+package com.zzl.demo.service.impl.user;
 
 import java.util.HashMap;
 import java.util.List;
@@ -116,6 +116,12 @@ public class UserService implements IUserService {
         String password = paramsObj.getString("password");
         
         // 检查用户名是否重复
+        boolean checkResult = userRepository.checkRepeat(username, null);
+        
+        // 用户名重复
+        if (checkResult) {
+            return JsonUtil.resultToJson(StatusCode.STATUS_DB_EXIST);
+        }
         
         // 组装用户对象
         User user = new User();

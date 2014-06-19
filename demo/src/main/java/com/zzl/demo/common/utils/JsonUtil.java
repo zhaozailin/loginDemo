@@ -50,8 +50,8 @@ public class JsonUtil {
     /**
      * 验证字符串是否为json格式
      * 
-     * @param json
-     * @return
+     * @param json 待验证的字符串
+     * @return 是否通过校验
      */
     public static boolean valid(String json) {
         if(null == json) {
@@ -69,9 +69,9 @@ public class JsonUtil {
     
     /**
      * 检查json中是否含有指定参数
-     * @param json
+     * @param json json字符串
      * @param paramsMap 参数集合
-     * @return
+     * @return 检查结果
      */
     public static boolean checkParams(JSONObject json, Map<String, String> paramsMap) {
         if(null == json || null == paramsMap) {
@@ -98,9 +98,9 @@ public class JsonUtil {
     
     /**
      * 检查参数的数据类型是否合法
-     * @param param
-     * @param paramType
-     * @return
+     * @param param 参数名
+     * @param paramType 参数数据类型
+     * @return 校验结果
      */
     private static boolean checkParamValid(String param, String paramType) {
         if(null == param || null == paramType) {

@@ -27,7 +27,7 @@ public class SessionUtil {
      * 登录后设置session信息
      * 
      * @param session
-     * @param userObj
+     * @param userObj 包含用户信息的JSONObject
      */
     public static void setSession(HttpSession session, JSONObject userObj) {
         
@@ -39,7 +39,7 @@ public class SessionUtil {
     /**
      * 从session中获取userId
      * 
-     * @param session
+     * @param session 
      */
     public static Long getUserId(HttpSession session) {
 
