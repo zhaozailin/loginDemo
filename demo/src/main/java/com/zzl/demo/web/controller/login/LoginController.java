@@ -51,7 +51,7 @@ public class LoginController {
      */
     @RequestMapping("/")
     public String home() {
-        return "home";
+        return "t";
     }
     
     /**
